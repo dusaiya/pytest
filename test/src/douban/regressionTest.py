@@ -7,6 +7,7 @@ Created on 2017年7月5日
 import re
 
 
+
 def isAllNum(str):
     pattern=re.compile(r"\d+$",re.I)
     match =pattern.match(str)

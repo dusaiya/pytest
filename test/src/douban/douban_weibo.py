@@ -5,7 +5,7 @@ Created on 2017年7月3日
 @author: alibaba
 '''
 
-
+import re
 import json
 
 def line2str(line):
@@ -22,14 +22,12 @@ def line2str(line):
         strValues[j]=values[j].__str__()
     return keys[0].__str__(),strValues
 
-
-fin = open("./uid_sina_id", 'r')
-for line in fin.readlines():
-    userId, weiboIds = line2str(line)
-    print userId
-    print userId.__class__
-    print weiboIds
-    print weiboIds[0].__class__
-fin.close()
+def isAllNum(str):
+    pattern=re.compile(r"\d+$",re.I)
+    match =pattern.match(str)
+    if match:
+        return True
+    else:
+        return False  
 
 
