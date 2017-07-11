@@ -8,7 +8,7 @@ Created on 2017年5月4日
 from weibo import APIClient  
 import webbrowser #python内置的web框架
 from __builtin__ import raw_input
-import time
+import datetime
 
 APP_KEY = '2188666401'  
 APP_SECRET = '9315033c6b91198e71881ed062bfdd49'  
@@ -26,3 +26,5 @@ print access_token
 expires_in = r.expires_in 
 print  expires_in.__class__
 print expires_in
+dateArray = datetime.datetime.utcfromtimestamp(expires_in)
+print dateArray

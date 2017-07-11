@@ -9,7 +9,7 @@ import json
 
 def line2str(line):
     """Deserialize
-    将行内容转换成字符串
+    将豆瓣抓去的【sina uid/】内容，按行转换成字符串
     """
     ulink = json.loads(line)
     keys = ulink.keys()
@@ -17,7 +17,7 @@ def line2str(line):
     val_lens = len(values)
     strValues=[None]*val_lens
     for j in range(0, val_lens):
-        print values[j].__str__()
+        ##print values[j].__str__()
         strValues[j]=values[j].__str__()
     return keys[0].__str__(),strValues
 
