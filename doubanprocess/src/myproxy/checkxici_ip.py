@@ -10,8 +10,8 @@ def proxyValidation(url, proxy):
     flag=False
     try:
         src = urlrequest(url, proxy, 1)
-        html = src.read()
-        if "159.226.43." in html:
+        result = src.read()
+        if "159.226.43." in result:
             print proxy + ' explosured our ip!!!'
         else:
             print proxy + ' is a good ip!!!'

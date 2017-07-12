@@ -10,20 +10,21 @@ import json
 
 def api_show(uid,token):
     uid_url="https://api.weibo.com/2/users/show.json" ##http://open.weibo.com/wiki/2/users/show
-    url=uid_url+"?token="+token+"&uid="+uid
+    url=uid_url+"?access_token="+token+"&uid="+uid
     return url
 
 def api_domain_show(domain,token):
-    domain_url="https://api.weibo.com/2/users/domain_show.json" ##http://open.weibo.com/wiki/2/users/domain_show
-    url=domain_url+"?token="+token+"&domain="+domain
+    domain_url="https://api.weibo.com/2/users/domain_show.json" ## http://open.weibo.com/wiki/2/users/domain_show
+    url=domain_url+"?access_token="+token+"&domain="+domain
     return url
 
 token='2.00UIuP3BzG7H5C23bacb5a88Sn8lXD' ## 根据weibotoken获取的token
-proxy='112.85.208.91:808' ## goodxici_ip.txt
+token='2.00UIuP3BbB3mLDa89c08b4bdublSAC'
+proxy='222.33.192.238:8118' ## goodxici_ip.txt
 
 fin = open("./uid_sina_id_test", 'r')
-rightout=open("./uid_sina_id_right_test", 'a')
-errorout=open("./uid_sina_id_error_test", 'a')
+rightout=open("./uid_sina_id_right_test", 'w')
+errorout=open("./uid_sina_id_error_test", 'w')
 
 totalCt=0
 for line in fin.readlines():
@@ -41,14 +42,13 @@ for line in fin.readlines():
             if douban_weibo.isAllNum(weiboId) & len(weiboId)>8: ##全是数字，长度超过
                 weiboLine["uid"]=weiboId
             else:
-                weiboLine["uid"]="123"
                 src=urlreq.urlrequest(api_domain_show(weiboId,token), proxy, 1)
-                print src
-                print src.__class__
-                weiboLine["domain"]=weiboId
+                result=json.loads(src.read())
+                weiboLine["domain"]=result['domain']
+                weiboLine["uid"]=result['idstr']
             correctList.append(weiboLine)
         except Exception as err:  
-            ##print weiboId+" is error"      
+            print err    
             errorList.append(weiboLine)
             errorCt=errorCt+1
     if len(correctList)>0:
@@ -62,7 +62,7 @@ for line in fin.readlines():
         errorout.write(json.dumps(errordata))
         errorout.write("\n")    
     totalCt+=1
-    if totalCt>1:
+    if totalCt>0:
         break
 fin.close()
 rightout.close()

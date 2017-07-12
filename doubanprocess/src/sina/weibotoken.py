@@ -10,8 +10,11 @@ import webbrowser #python内置的web框架
 from __builtin__ import raw_input
 import datetime
 
-APP_KEY = '2188666401'  
-APP_SECRET = '9315033c6b91198e71881ed062bfdd49'  
+
+##APP_KEY = '2188666401'  
+##APP_SECRET = '9315033c6b91198e71881ed062bfdd49'  
+APP_KEY='2922462603'
+APP_SECRET='1f09bbd6ee7bd405015f7c2b516b4594'
 CALLBACK_URL = 'http://www.csdn.net'  
 ##code='96d0c900c69a0b76cf4b39085d154997'
 client = APIClient(app_key=APP_KEY, app_secret=APP_SECRET, redirect_uri=CALLBACK_URL)
