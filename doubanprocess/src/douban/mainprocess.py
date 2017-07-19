@@ -61,6 +61,7 @@ def processHandler(idxstr, token, proxy):
             except Exception as err:
                 logout.write('ERROR in [DoubanId]:' + userId + ';[weibo]:' + weiboId + '.')
                 logout.write('[ERROR_MSG]:' + err.__str__() + ". \n")
+                logout.flush()
                 weiboLine["errMsg"] = err.__str__()
                 errorList.append(weiboLine)
                 errorCt = errorCt + 1

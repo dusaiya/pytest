@@ -4,22 +4,16 @@ Created on 2017年7月17日
 
 @author: alibaba
 '''
-foutId=open('./uid_sina_id','w')
-foutErr1=open('./uid_sina_err_id','w')
-##foutErr2=open('./uid_sina_err_nouser','w')
-foutInfo=open('./uid_sina_info','w')
-foutWeibo=open('./uid_sina_ids','w')
-for i in range(1,7):
+foutErr1=open('./final_sina_err_id','a')
+##foutErr2=open('./final_sina_err_nouser','w')
+foutInfo=open('./final_sina_info','a')
+foutWeibo=open('./final_sina_ids','a')
+for i in range(1,127):
     idxstr=str(i)
     print idxstr
-    fin = open("../douban/data1/uid_sina_id_" + idxstr, 'r')
-    rightout = open("../douban/data1/uid_sina_right_" + idxstr, 'r')
-    errorout = open("../douban/data1/uid_sina_error_" + idxstr, 'r')
-    sinaout = open("../douban/data1/uid_sina_info_" + idxstr, 'r')
-    ##ids
-    lines=fin.readlines()
-    foutId.writelines(lines)
-    del lines
+    rightout = open("../../../../alldata/data4/uid_sina_right_" + idxstr, 'r')
+    errorout = open("../../../../alldata/data4/uid_sina_error_" + idxstr, 'r')
+    sinaout = open("../../../../alldata/data4/uid_sina_info_" + idxstr, 'r')
     ##正式结果
     lines=rightout.readlines()
     foutWeibo.writelines(lines)
@@ -37,4 +31,3 @@ foutWeibo.close()
 foutInfo.close()
 foutErr1.close()
 ##foutErr2.close()
-foutId.close()
