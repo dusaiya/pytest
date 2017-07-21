@@ -10,6 +10,9 @@ import json
 
 
 def original_ids(db):
+    '''
+    原始uid录入更新，update形式，只更新一条记录
+    '''
     fin=open("/Users/alibaba/Documents/workspace/python/pytest/doubanprocess/uid_sina_id","r")
     totalCt=0
     for line in fin.readlines():
@@ -54,33 +57,12 @@ conn=MongoClient("10.200.6.7",27017)
 db=conn.douban_weibo
 
 ##错误信息插入
-'''
-fileName="/Users/alibaba/Documents/workspace/python/alldata/data1/final_sina_err_id"
-errInsert(db,fileName)
-
-fileName="/Users/alibaba/Documents/workspace/python/alldata/data2/final_sina_err_id"
-errInsert(db,fileName)
-fileName="/Users/alibaba/Documents/workspace/python/alldata/data3/final_sina_err_id"
-errInsert(db,fileName)
-fileName="/Users/alibaba/Documents/workspace/python/alldata/data4/final_sina_err_id"
-errInsert(db,fileName)
+fileName="/Users/alibaba/Documents/workspace/python/alldata/data6/final_sina_err"
+##errInsert(db,fileName)
 
 ##正式信息
-fileName="/Users/alibaba/Documents/workspace/python/alldata/data1/final_sina_ids"
-resultInsert(db,fileName)
-fileName="/Users/alibaba/Documents/workspace/python/alldata/data2/final_sina_ids"
-resultInsert(db,fileName)
-fileName="/Users/alibaba/Documents/workspace/python/alldata/data3/final_sina_ids"
-resultInsert(db,fileName)
-fileName="/Users/alibaba/Documents/workspace/python/alldata/data4/final_sina_ids"
+fileName="/Users/alibaba/Documents/workspace/python/alldata/data6/final_sina_ids"
 resultInsert(db,fileName)
 
-'''
-fileName="/Users/alibaba/Documents/workspace/python/alldata/data1/final_sina_info"
-infoInsert(db,fileName)
-fileName="/Users/alibaba/Documents/workspace/python/alldata/data2/final_sina_info"
-infoInsert(db,fileName)
-fileName="/Users/alibaba/Documents/workspace/python/alldata/data3/final_sina_info"
-infoInsert(db,fileName)
-fileName="/Users/alibaba/Documents/workspace/python/alldata/data4/final_sina_info"
+fileName="/Users/alibaba/Documents/workspace/python/alldata/data6/final_sina_info"
 infoInsert(db,fileName)

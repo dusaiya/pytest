@@ -59,12 +59,15 @@ def processHandler(idxstr, token, proxy):
                     weiboLine["uid"] = result['idstr'].__str__()
                 correctList.append(weiboLine)
             except Exception as err:
+                errMsg = err.__str__()
                 logout.write('ERROR in [DoubanId]:' + userId + ';[weibo]:' + weiboId + '.')
-                logout.write('[ERROR_MSG]:' + err.__str__() + ". \n")
+                logout.write('[ERROR_MSG]:' + errMsg + ". \n")
                 logout.flush()
-                weiboLine["errMsg"] = err.__str__()
+                weiboLine["errMsg"] = errMsg
                 errorList.append(weiboLine)
                 errorCt = errorCt + 1
+                if 'Forbidden' in errMsg:
+                    time.sleep(1800)
             time.sleep(60)
         if len(correctList) > 0:
             data["weiboIds"] = correctList
@@ -80,7 +83,7 @@ def processHandler(idxstr, token, proxy):
             errorout.flush()
         totalCt += 1
         if (totalCt % 50) == 49:
-            time.sleep(300)  ##休息
+            time.sleep(600)  ##休息
     fin.close()
     rightout.close()
     errorout.close()
@@ -131,7 +134,7 @@ if __name__ == "__main__":
     for i in range(0,10):
         idxstr=str(int(idxstr)+i)
         tokenidx=str(int(tokenidx)+i)
-        token = token_list[int(tokenidx)-1]
+        token = token_list[int(tokenidx)]
         proxy = '222.33.192.238:8118'  # # goodxici_ip.txt
         t1 = threading.Thread(target=processHandler,args=(idxstr, token, proxy))
         threads.append(t1)

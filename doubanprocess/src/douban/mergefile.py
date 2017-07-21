@@ -4,18 +4,18 @@ Created on 2017年7月17日
 
 @author: alibaba
 '''
-foutId=open('./uid_sina_id','a')
-foutErr1=open('./uid_sina_err_id','a')
-##foutErr2=open('./uid_sina_err_nouser','a')
-foutInfo=open('./uid_sina_info','a')
-foutWeibo=open('./uid_sina_ids','a')
+foutId=open('/Users/alibaba/Documents/workspace/python/alldata/data5/uid_sina_id','a')
+foutErr1=open('/Users/alibaba/Documents/workspace/python/alldata/data5/final_sina_err_id','a')
+##foutErr2=open('/Users/alibaba/Documents/workspace/python/alldata/data5/uid_sina_err_nouser','a')
+foutInfo=open('/Users/alibaba/Documents/workspace/python/alldata/data5/final_sina_info','a')
+foutWeibo=open('/Users/alibaba/Documents/workspace/python/alldata/data5/final_sina_ids','a')
 for i in range(1,50):
     idxstr=str(i)
     print idxstr
-    fin = open("../douban/data/uid_sina_id_" + idxstr, 'r')
-    rightout = open("../douban/data/uid_sina_right_" + idxstr, 'r')
-    errorout = open("../douban/data/uid_sina_error_" + idxstr, 'r')
-    sinaout = open("../douban/data/uid_sina_info_" + idxstr, 'r')
+    fin = open("/Users/alibaba/Documents/workspace/python/alldata/data5/uid_sina_id_" + idxstr, 'r')
+    rightout = open("/Users/alibaba/Documents/workspace/python/alldata/data5/uid_sina_right_" + idxstr, 'r')
+    errorout = open("/Users/alibaba/Documents/workspace/python/alldata/data5/uid_sina_error_" + idxstr, 'r')
+    sinaout = open("/Users/alibaba/Documents/workspace/python/alldata/data5/uid_sina_info_" + idxstr, 'r')
     ##ids
     lines=fin.readlines()
     foutId.writelines(lines)
