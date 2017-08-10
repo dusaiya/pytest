@@ -1,9 +1,10 @@
 # encoding: utf-8
 '''
-Created on 2017年7月19日
+Created on 2017年7月21日
 
 @author: alibaba
 '''
+
 from pymongo import MongoClient
 import douban2dict
 
@@ -25,7 +26,4 @@ for line in fin.readlines():
         db.douban_ext.insert({'doubanId':userId})
 fin.close() 
 fout.close()  
-
-
-
 

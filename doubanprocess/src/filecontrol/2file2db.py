@@ -56,13 +56,14 @@ def resultInsert(db,fileName):
 conn=MongoClient("10.200.6.7",27017)
 db=conn.douban_weibo
 
+directName="data7"
 ##错误信息插入
-fileName="/Users/alibaba/Documents/workspace/python/alldata/data6/final_sina_err"
-##errInsert(db,fileName)
+fileName="/Users/alibaba/Documents/workspace/python/alldata/"+directName+"/final_sina_err"
+errInsert(db,fileName)
 
 ##正式信息
-fileName="/Users/alibaba/Documents/workspace/python/alldata/data6/final_sina_ids"
+fileName="/Users/alibaba/Documents/workspace/python/alldata/"+directName+"/final_sina_ids"
 resultInsert(db,fileName)
 
-fileName="/Users/alibaba/Documents/workspace/python/alldata/data6/final_sina_info"
+fileName="/Users/alibaba/Documents/workspace/python/alldata/"+directName+"/final_sina_info"
 infoInsert(db,fileName)

@@ -25,8 +25,13 @@ def redundancyRemove(db,doubanId):
             basicRt=result
             initCt=len(basicRt["weiboIds"])
             _id=basicRt["_id"]
-    
-for redundancy in db.douban_ext.find():
-    doubanId=redundancy["doubanId"].__str__()
-    redundancyRemove(db,doubanId)
-    db.douban_ext.remove({'doubanId':doubanId})       
+
+if __name__=="__main__": 
+    totalCt=0
+    for redundancy in db.douban_ext.find():
+        doubanId=redundancy["doubanId"].__str__()
+        redundancyRemove(db,doubanId)
+        db.douban_ext.remove({'doubanId':doubanId}) 
+        totalCt+=1
+        print totalCt
+        print   doubanId    
