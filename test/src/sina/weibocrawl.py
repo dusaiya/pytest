@@ -23,7 +23,11 @@ print '输入url中code后面的内容后按回车键：'
 code=raw_input()
 r = client.request_access_token(code)  
 access_token = r.access_token # 新浪返回的token，类似abc123xyz456  
-expires_in = r.expires_in  
+print access_token.__class__
+print access_token
+expires_in = r.expires_in 
+print  expires_in.__class__
+print expires_in
 # 设置得到的access_token  
 client.set_access_token(access_token, expires_in)  
   

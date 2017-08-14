@@ -8,7 +8,7 @@ NOT_LONG_ENOUGH_ERROR="NOT_LONG_ENOUGH_ERROR"
 '''
 长度不够错误
 '''
-    
+
 NOT_ALL_NUM="NOT_ALL_NUM"
 '''
 并不全是数字字母

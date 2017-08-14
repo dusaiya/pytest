@@ -35,7 +35,7 @@ def processHandler(idxstr, token, proxy):
             try:
                 if len(weiboId) < 4:
                     raise Exception("NOT_LONG_ENOUGH_ERROR")
-                if douban_weibo.isAllNum(weiboId) & (len(weiboId) > 8):  # #全是数字，长度超过
+                if douban_weibo.isAllNum(weiboId) & (len(weiboId) == 10):  # #全是数字，长度超过
                     logout.write('INFO for [DoubanId]:' + userId + ';[weibo]:' + weiboId + ", geting Sina [UID].\n")
                     logout.flush()
                     src = urlreq.urlrequest(api_show(weiboId, token), proxy, 0)

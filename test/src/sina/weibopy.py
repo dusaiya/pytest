@@ -4,7 +4,7 @@
 from weibo import APIClient  
 import webbrowser #python内置的web框架
 from __builtin__ import raw_input
-import json
+import jsonTest
 ##import codecs
 '''
 appname:netTA17
@@ -39,16 +39,16 @@ client.set_access_token(access_token, expires_in)
 print client.statuses__public_timeline()  
 
 a=client.users.show.get(screen_name='霜盲')
-te = json.dumps(a,ensure_ascii=False)
-##tem = json.loads(te) 再次转换成json，并不需要
+te = jsonTest.dumps(a,ensure_ascii=False)
+##tem = jsonTest.loads(te) 再次转换成json，并不需要
 print a.location
 ##写文件
 file = open('/Users/alibaba/Documents/workspace/python/test/src/sina/result.txt','w')
-json.dump(a, file)
+jsonTest.dump(a, file)
 file.close()
 ##读文件
 file = open('/Users/alibaba/Documents/workspace/python/test/src/sina/result.txt','r')
-b = json.load(file)
+b = jsonTest.load(file)
 file.close()
 
 statuses = client.statuses__public_timeline()['statuses']  

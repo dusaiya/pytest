@@ -3,7 +3,6 @@ import requests
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
 from bs4 import BeautifulSoup
 import time
-requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
 
 def filter_speed(self,speed):

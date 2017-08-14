@@ -4,8 +4,8 @@ from requests.packages.urllib3.exceptions import InsecureRequestWarning
 import urllib2
 ##url = "https://api.douban.com/v2/user/136846329"
 ##url="http://10.60.1.92:8899/dbyq/hello.htm"
-##url="http://ip-api.com/json"
-##url="http://edns.ip-api.com/json"
+##url="http://ip-api.com/jsonTest"
+##url="http://edns.ip-api.com/jsonTest"
 ##url="http://api.ip138.com/query/?datatype=jsonp&token=12c7d20ac7a65f85e98f8ddb3753a588"
 ##url="https://www.baidu.com"
 def urlrequest(url, proxy,flag):

@@ -2,7 +2,6 @@ import requests
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
 import urllib2
 
-requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
 url="http://45.55.222.147:8899/dbyq/hello.htm"
 url="http://www.xicidaili.com/nn/10"
