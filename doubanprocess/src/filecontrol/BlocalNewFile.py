@@ -23,7 +23,7 @@ for line in fin.readlines():
          lineSize=len(weiboIds)
          dbSize=len(results[0]['weiboIds'])
          if lineSize>dbSize:
-             print "doubanId" + userId + ";lineSize:" + str(lineSize)+ ";dbSize:" + str(dbSize)
+             print "doubanId" + userId + ";lineSize:" + areastr(lineSize)+ ";dbSize:" + areastr(dbSize)
              fout.write(line)
              fout.flush()         
 fin.close() 

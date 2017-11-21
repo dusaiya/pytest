@@ -32,6 +32,7 @@ fin=open('./xici_ip.txt','r')
 fout=open('./goodxici_ip.txt','a')
 for line in fin.readlines():
     proxy=line.replace("\n","")
+    proxy="122.158.86.136:2467"
     flag,proxy=proxyValidation(url, proxy)
     if flag==True:
         fout.write(proxy.__str__()+'\n')

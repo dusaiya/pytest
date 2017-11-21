@@ -23,7 +23,7 @@ def processHandler(idxstr, token, proxy):
     for line in fin.readlines():
         userId, weiboIds = douban_weibo.line2str(line)
         now = datetime.datetime.now()
-        logout.write('[' + now.__str__() + '] Handling the' + str(totalCt) + 'th [DoubanId]:' + userId + '\n')
+        logout.write('[' + now.__str__() + '] Handling the' + areastr(totalCt) + 'th [DoubanId]:' + userId + '\n')
         data = {"doubanId":userId, "weiboIds":""}
         correctList = []
         errordata = {"doubanId":userId, "weiboIds":""}
@@ -132,8 +132,8 @@ if __name__ == "__main__":
     '''
     threads = []
     for i in range(0,10):
-        idxstr=str(int(idxstr)+i)
-        tokenidx=str(int(tokenidx)+i)
+        idxstr=areastr(int(idxstr)+i)
+        tokenidx=areastr(int(tokenidx)+i)
         token = token_list[int(tokenidx)]
         proxy = '222.33.192.238:8118'  # # goodxici_ip.txt
         t1 = threading.Thread(target=processHandler,args=(idxstr, token, proxy))

@@ -40,7 +40,7 @@ def handler(mysqlconn, cur, weibodb, info):
             mysqlsql=extract_tuple(weibo) #输入微博dict
             mysqllist.append(mysqlsql)
         except exceptions.Exception,e:
-            print "[ERROR]mid:"+weibo["mid"]+",msg:" +str(e)
+            print "[ERROR]mid:"+weibo["mid"]+",msg:" +areastr(e)
         
     #根据list执行数据库insert
     #cur.execute("insert into m values (%s, %s )" , ("1","xiaoming"))

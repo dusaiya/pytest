@@ -10,7 +10,7 @@ foutErr1=open('/Users/alibaba/Documents/workspace/python/alldata/data5/final_sin
 foutInfo=open('/Users/alibaba/Documents/workspace/python/alldata/data5/final_sina_info','a')
 foutWeibo=open('/Users/alibaba/Documents/workspace/python/alldata/data5/final_sina_ids','a')
 for i in range(1,50):
-    idxstr=str(i)
+    idxstr=areastr(i)
     print idxstr
     fin = open("/Users/alibaba/Documents/workspace/python/alldata/data5/uid_sina_id_" + idxstr, 'r')
     rightout = open("/Users/alibaba/Documents/workspace/python/alldata/data5/uid_sina_right_" + idxstr, 'r')

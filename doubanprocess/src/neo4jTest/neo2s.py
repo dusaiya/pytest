@@ -11,7 +11,7 @@ def createNode(neo_graph, label, uidKey,dbOb):
     创建节点，返回节点对象。
     这里并不
     '''
-    dbNode = Node(label, neo_id="neo_"+str(dbOb[uidKey]))
+    dbNode = Node(label, neo_id="neo_"+areastr(dbOb[uidKey]))
     neo_graph.create(dbNode)
     for key in dbOb.keys():
         keystr = key.__str__()

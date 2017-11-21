@@ -4,14 +4,14 @@ Created on 2017年7月17日
 
 @author: alibaba
 '''
-directName="data7"
+directName="data12"
 foutIds=open('/Users/alibaba/Documents/workspace/python/alldata/'+directName+'/final_sina_id','a')
 foutErr1=open('/Users/alibaba/Documents/workspace/python/alldata/'+directName+'/final_sina_err','a')
 ##foutErr2=open('./final_sina_err_nouser','w')
 foutInfo=open('/Users/alibaba/Documents/workspace/python/alldata/'+directName+'/final_sina_info','a')
 foutWeibo=open('/Users/alibaba/Documents/workspace/python/alldata/'+directName+'/final_sina_ids','a')
-for i in range(0,38):
-    idxstr=str(i)
+for i in range(0,40):
+    idxstr=areastr(i)
     print idxstr
     finIds=open("../../../../alldata/"+directName+"/uid_sina_id_" + idxstr, 'r')
     rightout = open("../../../../alldata/"+directName+"/uid_sina_right_" + idxstr, 'r')

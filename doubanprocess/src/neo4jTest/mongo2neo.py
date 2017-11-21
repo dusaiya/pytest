@@ -30,7 +30,7 @@ ct=1
 for rel in rels:
     neo_tx = neo_graph.begin()
     doubanId = rel["doubanId"].__str__()
-    print "No." +str(ct)+"-doubanId:" + doubanId + "----------start------------"
+    print "No." +areastr(ct)+"-doubanId:" + doubanId + "----------start------------"
     print rel
     doubanUsers=list(douban_db.find({"uid":doubanId}).limit(1))
     doubanUser=doubanUsers[0]
@@ -52,5 +52,5 @@ for rel in rels:
         w2dRelation=Relationship(weiboNode,"ALIGN",doubanNode,align_msg=["id"])
         neo_tx.create(w2dRelation)
     neo_tx.commit()   
-    print "No." +str(ct)+"-doubanId:" +doubanId + "----------end------------"
+    print "No." +areastr(ct)+"-doubanId:" +doubanId + "----------end------------"
     ct+=1

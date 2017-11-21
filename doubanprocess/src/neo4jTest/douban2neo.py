@@ -13,7 +13,7 @@ def insertWeiboInfo(neo_graph, weiboOb):
     print '--------------------'
     if (name==None) or (len(name)==0):
         print 'None'
-        weiboNode = Node("WeiboInfo", name='None-id:'+str(weiboOb["id"]))
+        weiboNode = Node("WeiboInfo", name='None-id:'+areastr(weiboOb["id"]))
     else:
         weiboNode = Node("WeiboInfo", name=name.encode("utf-8"))
     neo_graph.create(weiboNode)

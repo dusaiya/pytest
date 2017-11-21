@@ -11,7 +11,7 @@ conn = MongoClient("localhost", 27017)
 db = conn.douban_weibo
 
 fin = open("/home/align/code/douban_weibo/uid_sina_id", "r")
-fout = open("/home/align/code/douban_weibo/uid_sina_id_new_1", "a")
+fout = open("/home/align/code/douban_weibo/uid_sina_id_new_1", "ws")
 totalCt=0
 for line in fin.readlines():
     totalCt+=1

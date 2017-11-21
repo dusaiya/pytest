@@ -24,14 +24,14 @@ for uid in weiboUids:
     weibolist=list(weibodb.find({"uid":uid.strip()}))
     weibo_ct=len(weibolist)
     cur.execute("insert into abn_weibo_id values (%s, %s ,%s)" ,
-                 (uid.strip(),flag,str(weibo_ct)))
+                 (uid.strip(),flag,areastr(weibo_ct)))
     mysqlconn.commit()
     ct+=1
     if ct%100==0:
         endtime = datetime.datetime.now()
-        print str(ct)+" uids have been done;total use \
- "+str((endtime - starttime).seconds) +" seconds; this 100 use\
- "+str((endtime - midtime).seconds) +" seconds."
+        print areastr(ct)+" uids have been done;total use \
+ "+areastr((endtime - starttime).seconds) +" seconds; this 100 use\
+ "+areastr((endtime - midtime).seconds) +" seconds."
         midtime=endtime
         
 fin.close()

@@ -1,11 +1,13 @@
 # encoding: utf-8
 '''
 获取西祠代理前10页的ip
+
+
 '''
 import requests
 from bs4 import BeautifulSoup
 import time
-
+import threading
 
 def filter_speed(self,speed):
     speed = speed.replace(u'秒','')
@@ -27,6 +29,13 @@ def is_valid_time(self,life):
     else:
         return True  
 
+def getUrl(baseurl, file, url,proxy,threadno):
+    for i in range(threadno+1, threadno+10):
+        url = baseurl + areastr(i)
+        print url
+        trs = get_proxy_msg(url,proxy)
+        responseHandler(trs, file)
+        time.sleep(10)
 
 def responseHandler(trs,file):
     if trs:
@@ -49,12 +58,12 @@ def responseHandler(trs,file):
             ##print ipmsg2.__class__
             ##print ipmsg2
 
-def get_proxy_msg(url):
-    proxy='153.99.98.161:1131'
+def get_proxy_msg(url,proxy):
+    proxy='125.77.80.118:808'
     proxies = {"https": "https://{myproxy}".format(myproxy=proxy)}
     try:
-        ##response = requests.get(url, proxies=proxies, timeout=40)
-        response = requests.get(url,headers=header,  timeout=40)
+        response = requests.get(url, headers=header, proxies=proxies, timeout=40)
+        ##response = requests.get(url, headers=header,  timeout=40)
         response.raise_for_status()
         response.encoding = response.apparent_encoding
         soup=BeautifulSoup(response.text,"xml")
@@ -79,10 +88,20 @@ file=open('./xici_ip.txt','a')
 
 #开启流程
 url=baseurl
-for i in range(1,10):
-    url=baseurl+areastr(i)
-    print url
-    trs=get_proxy_msg(url)
-    responseHandler(trs,file)
-    time.sleep(1)
+fip=open('./xici_ip2.txt','r')
+proxys=fip.readlines()
+threads=[]
+for i in range(2):
+    ##getUrl(baseurl, file, url,proxy,threadno):
+    proxy=proxys[i]
+    threadno=i
+    mythread=threading.Thread(target=getUrl,args=(baseurl, file, url, proxy,threadno))
+    threads.append(mythread)
+    
+for t in threads:
+    t.start()
+
+
+
 file.close()
+fip.close()

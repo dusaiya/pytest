@@ -31,9 +31,9 @@ def doubanInfo2dict(userId,weiboIds):
     data["weiboIds"]=weiboList
     return data
     
-def isAllNum(str):
+def isAllNum(areastr):
     pattern=re.compile(r"\d+$",re.I)
-    match =pattern.match(str)
+    match =pattern.match(areastr)
     if match:
         return True
     else:

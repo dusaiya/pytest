@@ -10,7 +10,7 @@ import douban2dict
 conn = MongoClient("10.200.6.7", 27017)
 db = conn.douban_weibo
 
-directName = "data7"
+directName = "data11"
 fin = open("/Users/alibaba/Documents/workspace/python/alldata/" + directName + "/final_sina_id", "r")
 fout = open("/Users/alibaba/Documents/workspace/python/alldata/" + directName + "/uid_sina_id_new", "w")
 for line in fin.readlines():
